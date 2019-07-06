@@ -2,7 +2,7 @@
   <div id="app">
     <h1 v-once v-text='titulo'></h1>
     <h2>{{ subtitulo }}</h2>
-    <input v-model="subtitulo" type='text' placeholder="Descrição"/>
+    <input v-bind:disabled="tarefas.lenght == 0" v-model="subtitulo" type='text' placeholder="Descrição"/>
     <div v-if="tarefas.length <= 0">
       Não há tarefas
     </div>
@@ -13,6 +13,8 @@
         <li v-for="tarefa in tarefas">{{ tarefa }}</li>
       </ul>
     </div>
+    <button v-on:click="tarefas = []">Limpar</button>
+    <!--Ou com o @ @click="tarefas"-->
   </div>
 </template>
 
